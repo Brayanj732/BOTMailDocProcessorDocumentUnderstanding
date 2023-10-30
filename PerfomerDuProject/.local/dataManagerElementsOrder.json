@@ -1,0 +1,251 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main-ActionCenter.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "config&Sequence_9",
+        "maxAttempts&Sequence_9",
+        "retryInterval&Sequence_9",
+        "TransactionItem&Sequence_9",
+        "docTaxonomy&Flowchart_10",
+        "docText&Flowchart_10",
+        "dom&Flowchart_10",
+        "classificationResultsArray&Flowchart_10",
+        "classificationSuccessFlag&Flowchart_10",
+        "currentPageRange&TryCatch_4",
+        "extractionResults&TryCatch_4",
+        "extractionSuccessFlag&Flowchart_11",
+        "validatedExtractionResults&Sequence_58",
+        "validationAction&Sequence_58",
+        "validatedClassificationResults&Sequence_51",
+        "classificationAction&Sequence_51"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TargetFile",
+        "in_UseQueue"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main-Attended.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "config&Sequence_9",
+        "maxAttempts&Sequence_9",
+        "retryInterval&Sequence_9",
+        "TransactionItem&Sequence_9",
+        "docTaxonomy&Flowchart_10",
+        "docText&Flowchart_10",
+        "dom&Flowchart_10",
+        "classificationResultsArray&Flowchart_10",
+        "classificationSuccessFlag&Flowchart_10",
+        "currentPageRange&TryCatch_6",
+        "extractionResults&TryCatch_6",
+        "extractionSuccessFlag&Flowchart_13",
+        "validatedExtractionResults&Sequence_65",
+        "validatedClassificationResults&Sequence_51"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TargetFile",
+        "in_UseQueue"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/30_Classify.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TargetDocument",
+        "in_DocTaxonomy",
+        "in_DOM",
+        "in_DocText",
+        "in_Config",
+        "in_MaxAttempts",
+        "in_RetryInterval",
+        "out_ClassificationResultsArray"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/50_Extract.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TargetDocument",
+        "in_DocTaxonomy",
+        "in_DOM",
+        "in_DocText",
+        "in_ClassificationResult",
+        "in_Config",
+        "in_MaxAttempts",
+        "in_RetryInterval",
+        "out_ExtractionResults"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/00_ReadConfigFile.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "configDT&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config",
+        "out_MaxAttempts",
+        "out_RetryInterval"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/10_InitializeProcess.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "configDT&Sequence_4",
+        "assetValue&Sequence_4"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_AssetsSheet",
+        "in_ConfigFile",
+        "in_MaxAttempts",
+        "in_RetryInterval",
+        "io_Config",
+        "out_DocTaxonomy"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/15_GetTransactionItem.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_MaxAttempts",
+        "in_RetryInterval",
+        "out_TargetFile",
+        "out_TransactionItem"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/20_Digitize.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TargetDocument",
+        "in_Config",
+        "in_MaxAttempts",
+        "in_RetryInterval",
+        "out_DOM",
+        "out_DocText"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/35_ClassificationBusinessRuleValidation.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "minConfidenceThreshold&Flowchart_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TargetDocument",
+        "in_DocTaxonomy",
+        "in_Config",
+        "out_AutoClassificationSuccess",
+        "in_ClassificationResultsArray"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/ReusableWorkflows/SetTransactionProgress.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_Progress",
+        "in_TransactionItem",
+        "in_Config",
+        "in_MaxAttempts",
+        "in_RetryInterval"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/55_ExtractionBusinessRuleValidation.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TargetDocument",
+        "in_DocTaxonomy",
+        "in_Config",
+        "io_ExtractionResults",
+        "out_AutoExtractionSuccess"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/70_Export.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "outputPath&Sequence_1",
+        "exportDataSet&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ExtractionResults",
+        "in_Config",
+        "in_MaxAttempts",
+        "in_RetryInterval"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/80_EndProcess.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem",
+        "in_Config",
+        "in_MaxAttempts",
+        "in_RetryInterval"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/ReusableWorkflows/SetTransactionStatus.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem",
+        "in_Exception",
+        "in_Config",
+        "in_MaxAttempts",
+        "in_RetryInterval"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
