@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1181,2947</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,2910</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -132,10 +132,10 @@
       <AssemblyReference>UiPath.Persistence.Orchestrator.Client</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="700,2882" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="700,2845" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="MailsObtained" />
-      <Variable x:TypeArguments="s:String[]" Name="strPdfFiles" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="vList_MailsObtained" />
+      <Variable x:TypeArguments="s:String[]" Name="vArrPdfFiles" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -144,31 +144,31 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="638,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:GetOutlookMailMessages FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="brayjimenezorozco@hotmail.com" sap2010:Annotation.AnnotationText="get mails from outlook and filters by subject" DisplayName="Get Outlook Mail Messages" Filter="[subject]='Uipath'" GetAttachements="False" sap:VirtualizedContainerService.HintSize="638,67" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Bandeja de entrada" MarkAsRead="False" Messages="[MailsObtained]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="30">
+    <ui:GetOutlookMailMessages FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="brayjimenezorozco@hotmail.com" sap2010:Annotation.AnnotationText="get mails from outlook and filters by subject" DisplayName="Get Outlook Mail Messages" Filter="[subject]='Uipath'" GetAttachements="False" sap:VirtualizedContainerService.HintSize="638,67" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Bandeja de entrada" MarkAsRead="False" Messages="[vList_MailsObtained]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="30">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetOutlookMailMessages>
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Filters by subject &quot;Uipath&quot; in this case" DisplayName="For Each Mails filtered by subject" sap:VirtualizedContainerService.HintSize="638,1766" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[MailsObtained]">
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Mails filtered by subject" sap:VirtualizedContainerService.HintSize="638,1729" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[vList_MailsObtained]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="Mails" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1549" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1512" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[Mails.Attachments.Count &gt; 0]" DisplayName="If these mails have attachments" sap:VirtualizedContainerService.HintSize="562,1461" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[Mails.Attachments.Count &gt; 0]" DisplayName="If these mails have attachments" sap:VirtualizedContainerService.HintSize="562,1424" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="528,1279" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="528,1242" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="x:Boolean" Name="PdfExist" />
-                    <Variable x:TypeArguments="x:String" Name="PathFilesInput" />
+                    <Variable x:TypeArguments="x:Boolean" Name="vBooPdfExist" />
+                    <Variable x:TypeArguments="x:String" Name="vStrPathFilesInput" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -177,30 +177,30 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <Assign DisplayName="Assign initialize String array of pdf" sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_3">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="s:String[]">[strPdfFiles]</OutArgument>
+                      <OutArgument x:TypeArguments="s:String[]">[vArrPdfFiles]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
                       <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_Config("ExportAttachments").ToString , "*.pdf")]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <If sap2010:Annotation.AnnotationText="Deletes pdf files if there are pdf already in the folder. by this strategy we'll always  have a clean enviroment" Condition="[strPdfFiles.Count &gt; 0]" DisplayName="If in the folder there are already pdf" sap:VirtualizedContainerService.HintSize="486,1069" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If sap2010:Annotation.AnnotationText="Deletes pdf files if there are pdf already in the folder. by this strategy we'll always  have a clean enviroment" Condition="[vArrPdfFiles.Count &gt; 0]" DisplayName="If in the folder there are already pdf" sap:VirtualizedContainerService.HintSize="486,1032" sap2010:WorkflowViewState.IdRef="If_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="452,627" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence sap:VirtualizedContainerService.HintSize="452,601" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each pdf file" sap:VirtualizedContainerService.HintSize="410,354" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[strPdfFiles]">
+                        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each pdf file" sap:VirtualizedContainerService.HintSize="410,354" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[vArrPdfFiles]">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="x:String">
                               <ActivityAction.Argument>
-                                <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+                                <DelegateInArgument x:TypeArguments="x:String" Name="Pdf" />
                               </ActivityAction.Argument>
                               <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_10">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -208,12 +208,12 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[currentItem]" />
+                                <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[Pdf]" />
                               </Sequence>
                             </ActivityAction>
                           </ui:ForEach.Body>
                         </ui:ForEach>
-                        <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Save Attachments obtained by outlook" ExcludeInlineAttachments="False" FolderPath="[in_Config(&quot;ExportAttachments&quot;).ToString]" sap:VirtualizedContainerService.HintSize="410,145" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[Mails]" OverwriteExisting="False">
+                        <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Save Attachments obtained by outlook" ExcludeInlineAttachments="False" FolderPath="[in_Config(&quot;ExportAttachments&quot;).ToString]" sap:VirtualizedContainerService.HintSize="410,119" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[Mails]" OverwriteExisting="False">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -223,13 +223,13 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence sap:VirtualizedContainerService.HintSize="376,218" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_9">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="if there aren't attachments already exists" DisplayName="Save Attachments obtained by outlook" ExcludeInlineAttachments="False" FolderPath="[in_Config(&quot;ExportAttachments&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,130" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[Mails]" OverwriteExisting="False">
+                        <ui:SaveMailAttachments Attachments="{x:Null}" sap2010:Annotation.AnnotationText="if there aren't attachments already exists" DisplayName="Save Attachments obtained by outlook" ExcludeInlineAttachments="False" FolderPath="[in_Config(&quot;ExportAttachments&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,119" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[Mails]" OverwriteExisting="False">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -258,7 +258,7 @@
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
-            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="Document" />
           </ActivityAction.Argument1>
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
@@ -271,7 +271,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item attachments" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="388,194" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
               <ui:AddQueueItem.ItemInformation>
-                <InArgument x:TypeArguments="x:String" x:Key="Path">[CurrentFile.ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Path">[Document.ToString]</InArgument>
               </ui:AddQueueItem.ItemInformation>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">

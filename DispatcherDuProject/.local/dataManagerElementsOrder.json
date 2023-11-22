@@ -4,7 +4,11 @@
       "Path": null,
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": null,
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
@@ -12,17 +16,10 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "TaskAction&Sequence_1",
-        "FormObject&Sequence_1",
-        "QueueItemObject&Sequence_1",
-        "WaitJob&Sequence_1",
-        "strPdfFiles&Sequence_1",
-        "PdfExist&Sequence_3",
-        "MailsObtained&Sequence_1",
-        "vBooExistData&Sequence_1",
-        "Multiplicacion&Sequence_1",
-        "ValoresTotal&Sequence_1",
-        "Index&Sequence_1"
+        "vArrPdfFiles&Sequence_1",
+        "vStrPathFilesInput&Sequence_3",
+        "vBooPdfExist&Sequence_3",
+        "vList_MailsObtained&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_TransactionItem",
